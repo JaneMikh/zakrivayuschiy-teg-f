@@ -33,6 +33,7 @@
   text-transform: uppercase;
   font-family: var(--accent-font, sans-serif);
   border: 2px solid #000;
+  margin: 0 auto 100px;
 }
 
 .header__logo {
@@ -48,10 +49,95 @@
   font-weight: inherit;
 }
 
-
 /*Переиспользуемые классы*/
 /*Секция резиновая. Ее ширину нужно будет сделать переменной и на мобильной версии сделать равной 100% экрана*/
 .section {
   max-inline-size: 700px;
+}
+
+.button {
+  border: 2px solid #000;
+  appearance: none;
+  font-size: 14px;
+  font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
+  cursor: pointer;
+}
+
+/*Стили для карточек*/
+
+.cards {
   margin: 0 auto;
+}
+
+.card {
+  background-color: #fff;
+  border: 2px solid #000;
+  margin-bottom: 52px;
+}
+
+.card__title {
+  font-size: 18px;
+  line-height: 100%;
+  padding: 6px 24px 6px 10px;
+  font-variation-settings: 'wght' var(--main-font-bold-weight, 700);
+}
+
+.card__image-container {
+
+}
+
+.card__watermark {
+  
+}
+
+.card__image {
+  inline-size: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
+.card__content {
+  padding: 22px 25px 25px;
+}
+
+.card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  margin-bottom: 25px;
+}
+
+.card__text-element {
+  font-size: 18px;
+  line-height: calc(21 / 18);
+}
+
+.card__buttons {
+  display: flex;
+  justify-self: flex-end;
+  gap: 6px;
+ /* padding: 0 25px 25px 0;*/
+}
+
+.card__icon-button {
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+  display: flex;
+  align-items: flex-end;
+}
+
+.card__like-button {
+  padding: 10.5px 35px;
+  background: transparent;
+
+}
+
+.button__text {
+  line-height: 90%;
 }
