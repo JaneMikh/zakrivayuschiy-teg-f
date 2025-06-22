@@ -15,12 +15,11 @@
   min-block-size: 100dvb;
 }
 
-
 .test1 {
-  font-family: 'Inter-Variable';
+  font-family: "Inter-Variable";
   font-weight: 500;
 }
 
 .test2 {
-  font-family: 'PressStart2P-Regular';
+  font-family: "PressStart2P-Regular";
 }
