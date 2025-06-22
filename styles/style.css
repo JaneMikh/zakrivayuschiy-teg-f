@@ -13,13 +13,45 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-font, 'Inter-Variable', sans-serif);
+  font-variation-settings: 'wght' var(--main-font-weight, 400);
+  background-color: #fff; /*Нужно подумать. Может не нужно*/
+  background-image: var(--bg-image);
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-.test1 {
-  font-family: "Inter-Variable";
-  font-weight: 500;
+/*Блок header*/
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: clamp(7.5rem, 6.9231rem + 2.4615vw, 8rem) 0;
+  background-color: #fff;
+  text-transform: uppercase;
+  font-family: var(--accent-font, sans-serif);
+  border: 2px solid #000;
 }
 
-.test2 {
-  font-family: "PressStart2P-Regular";
+.header__logo {
+  font-size: clamp(3.06rem, 1.9062rem + 4.9231vw, 4.06rem);
+  display: block;
+  line-height: 100%;
+  /*font-weight: inherit;*/
+}
+
+.header__title {
+  font-size: clamp(0.875rem, 0.2254rem + 2.7717vw, 1.438rem);
+  line-height: 100%;
+  font-weight: inherit;
+}
+
+
+/*Переиспользуемые классы*/
+/*Секция резиновая. Ее ширину нужно будет сделать переменной и на мобильной версии сделать равной 100% экрана*/
+.section {
+  max-inline-size: 700px;
+  margin: 0 auto;
 }
