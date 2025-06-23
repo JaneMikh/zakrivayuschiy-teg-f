@@ -83,24 +83,48 @@
 }
 
 .card__image-container {
-
-}
-
-.card__watermark {
-  
-}
-
-.card__image {
-  inline-size: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  object-position: center;
+  position: relative;
   border-top: 2px solid #000;
   border-bottom: 2px solid #000;
 }
 
+.card__watermark {
+  position: absolute;
+  top: 28px;
+  right: 25px;
+  font-size: 14px;
+  font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
+  line-height: 100%;
+  text-transform: uppercase;
+  text-shadow:  /*на случай, если text-stroke работать не будет. Код взяла из урока*/
+  -1px 0 var(--text-shadow, #fff), 
+  0 1px var(--text-shadow, #fff), 
+  1px 0 var(--text-shadow, #fff), 
+  0 -1px var(--text-shadow, #fff);
+  filter: opacity(0.5);
+  mix-blend-mode: hard-light;
+  
+}
+
+@supports((text-stroke: 1px var(--text-shadow, #fff)) or (-webkit-text-stroke: 1px var(--text-shadow, #fff))) {
+  .card__watermark {
+    -webkit-text-stroke: 1px var(--text-shadow, #fff);
+    text-stroke: 1px var(--text-shadow, #fff);
+    text-shadow: none;
+  }
+}
+
+
+.card__image {
+  display: block;
+  inline-size: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+}
+
 .card__content {
-  padding: 22px 25px 25px;
+  padding: 25px 25px 25px;
 }
 
 .card__text {
@@ -108,12 +132,10 @@
   flex-direction: column;
   gap: 27px;
   margin-bottom: 25px;
-}
-
-.card__text-element {
   font-size: 18px;
   line-height: calc(21 / 18);
 }
+
 
 .card__buttons {
   display: flex;
