@@ -61,6 +61,7 @@
   font-size: 14px;
   font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
   cursor: pointer;
+  background: #fff;
 }
 
 /*Стили для карточек*/
@@ -161,11 +162,11 @@
 
 .card__like-button {
   padding: 10.5px 35px;
-  background: transparent;
-
 }
 
-.button__text {
+/*Стили для последнего блока с кнопкой "Сохранить"*/
+
+.button__text {  /*Нужно перенести этот блок выше*/
   line-height: 90%;
   display: block;
 }
@@ -178,15 +179,63 @@
 
 }
 
-.button_type_save {
+.save__button {
   max-inline-size: 335px;
   padding: 15.5px 19px 15.5px 17px;
   display: flex;
   align-items: center;
-  gap: 8px;                
+  gap: 8px;            
 }
 
 .button__icon {
-  inline-size: 21px;
-  block-size: 21px;
+  inline-size: var(--floppy-size, 21px);
+  block-size:  var(--floppy-size, 21px);
 }
+
+/*Стили для модального окна*/
+
+.modal {
+  padding: 0;
+  position: fixed;
+  inset: 0;
+  max-inline-size: 353px;
+}
+
+
+.modal:not([open]) {
+  pointer-events: none;
+  opacity: 0;
+}
+
+
+.modal::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+.modal__form {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  gap: 30px 20px;
+}
+
+.modal__icon {
+  --floppy-size: 39px;
+  inline-size: var(--floppy-size, 39px);
+  block-size:  var(--floppy-size, 39px);
+  align-self: center;
+}
+
+.modal__text {
+  font-family: var(--accent-font, sans-serif);
+  font-weight: inherit;
+  font-size: 14px;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.modal__button {
+  padding: 10.7px 0;
+  grid-column: 1 / 3;
+}
+

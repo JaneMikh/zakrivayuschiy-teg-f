@@ -292,14 +292,34 @@
       </div>
       </article>
       <section class="button__container section">
-        <button class="button button_type_save" type="button">
-          <svg class="button__icon">
+        <button 
+          class="button save__button" 
+          type="button"
+          onclick="window['dialog'].showModal();"
+          aria-controls="dialog"
+        >
+          <svg class="button__icon" viewBox="0 0 21 21">
             <use href="./svg/floppy.svg#floppy"></use>
           </svg>
           <span class="button__text">Сохранить на память</span>
         </button>
       </section>
     </main>
+    <dialog class="modal" id="dialog">
+      <form class="modal__form" method="dialog">
+        <svg class="modal__icon" viewBox="0 0 21 21">
+          <use href="svg/floppy.svg#floppy" />
+        </svg>
+        <p class="modal__text">Вставьте дискету, чтобы продолжить</p>
+        <button 
+          class="button modal__button" 
+          type="button"
+          onclick="window['dialog'].close();">
+          <span class="button__text">ОК</span>
+        </button>
+      </form>
+    </dialog>
+
     <script src="./scripts/like.js"></script>
   </body>
 </html>
