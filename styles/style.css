@@ -33,7 +33,7 @@
   text-transform: uppercase;
   font-family: var(--accent-font, sans-serif);
   border: 2px solid #000;
-  margin: 0 auto 100px;
+  margin: 100px auto;
 }
 
 .header__logo {
@@ -73,7 +73,7 @@
 .card {
   background-color: #fff;
   border: 2px solid #000;
-  margin-bottom: 52px;
+  margin-bottom: 50px;
 }
 
 
@@ -272,4 +272,31 @@
 
 .card__image_blur {
   filter: blur(0.3rem);
+}
+
+/*Медиазапросы*/
+
+@media (width < 376px) {
+  .card__title {
+    line-height: normal;
+  }
+
+  .button__container {
+    padding-top: 52px;
+  }
+
+  .save__button {
+    flex-direction: column;
+  }
+
+  .button__icon {
+    --floppy-size: 28px; 
+    inline-size: var(--floppy-size, 28px);
+    block-size:  var(--floppy-size, 28px);
+  }
+
+  .modal__form {
+    padding: 30px 40px;
+    max-inline-size: 341px;
+  }
 }
