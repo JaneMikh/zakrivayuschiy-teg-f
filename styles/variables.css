@@ -19,7 +19,19 @@
 
     --floppy-size: 21px;
     --modal-padding: 30px;
+   --button-text-color: #fff;
+
+   /*Переменные для анимации сердца*/
+   --contour-color: #000;
+   --main-body-color: none;
+   --main-body-fill-color: #000;
+   --core-color: transparent;
+   --core-fill-color: #000;
+   --sparks-color: #ff0000;
+
 }
+
+
 
 @media (width <= 375px) {
     :root {
