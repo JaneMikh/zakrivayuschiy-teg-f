@@ -23,10 +23,10 @@
 
    /*Переменные для анимации сердца*/
    --contour-color: #000;
-   --main-body-color: none;
-   --main-body-fill-color: #000;
-   --core-color: transparent;
-   --core-fill-color: #000;
+   --main-body-color: #fff;
+   /*--main-body-fill-color: #000;*/
+   --core-color: #fff;
+   /*--core-fill-color: #000;*/
    --sparks-color: #ff0000;
 
 }

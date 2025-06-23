@@ -237,9 +237,24 @@
   opacity: 0;
 }
 
-/*Стили (hover эффект), связанные с сердечком, которые потом нужно перенести в папку с анимациями*/
 
+/*Стили до hover и других эффектов*/
+.like-icon .core {
+    fill: var(--core-color, #fff);
+    transition: fill 0.3s linear 0.03s;
+}
 
+.like-icon .main-body {
+  fill: var(--main-body-color, #fff);
+  transition: fill 0.3s linear;
+}
+
+.like-icon .contour {
+  fill: var(--contour-color, #000);
+  transition: fill 0.1s linear;
+}
+ 
+/*Стили c hover-эффектом*/
 .like-icon:hover .core {
     fill: var(--contour-color, #000);
     transition: fill 0.3s linear;
@@ -250,6 +265,41 @@
   transition: fill 0.3s linear 0.03s;
 }
 
+/*Стили иконки в состоянии active*/
+.like-icon:active .core {
+    fill: var(--sparks-color, #ff0000);
+    transition: fill 0.3s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--sparks-color, #ff0000);
+  transition: fill 0.3s linear 0.03s;
+}
+
+/*Стили иконки в состоянии is-liked*/
+.like-icon.is-liked .core {
+    fill: var(--sparks-color, #ff0000);
+    transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--sparks-color, #ff0000);
+  transition: fill 0.3s linear 0.03s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--sparks-color, #ff0000);
+  transition: fill 0,03s linear;
+}
+
+.like-icon.is-liked .icon-heart {
+  animation: heart 0.3s ease-in 0.1s 1 alternate;
+  transform-origin: center;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s ease-in 0.3s 1 alternate;
+}
 
 /*Стили для модального окна*/
 
