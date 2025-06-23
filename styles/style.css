@@ -75,6 +75,11 @@
   margin-bottom: 52px;
 }
 
+
+.card:last-of-type {
+  margin-bottom: 0;
+}
+
 .card__title {
   font-size: 18px;
   line-height: 100%;
@@ -162,4 +167,26 @@
 
 .button__text {
   line-height: 90%;
+  display: block;
+}
+
+.footer {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 50px 0 103px;
+
+}
+
+.button_type_save {
+  max-inline-size: 335px;
+  padding: 15.5px 19px 15.5px 17px;
+  display: flex;
+  align-items: center;
+  gap: 8px;                
+}
+
+.button__icon {
+  inline-size: 21px;
+  block-size: 21px;
 }
