@@ -213,7 +213,7 @@
 }
 
 .modal__form {
-  padding: 30px;
+  padding: 30px var(--modal-padding, 30px);
   display: grid;
   grid-template-columns: min-content 1fr;
   gap: 30px 20px;
@@ -276,7 +276,7 @@
 
 /*Медиазапросы*/
 
-@media (width < 376px) {
+@media (width <= 375px) {
   .card__title {
     line-height: normal;
   }
@@ -289,14 +289,8 @@
     flex-direction: column;
   }
 
-  .button__icon {
-    --floppy-size: 28px; 
-    inline-size: var(--floppy-size, 28px);
-    block-size:  var(--floppy-size, 28px);
-  }
-
   .modal__form {
-    padding: 30px 40px;
+    padding: 30px var(--modal-padding);
     max-inline-size: 341px;
   }
 }

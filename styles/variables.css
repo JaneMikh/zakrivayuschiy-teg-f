@@ -18,5 +18,12 @@
     --text-shadow: #fff;
 
     --floppy-size: 21px;
+    --modal-padding: 30px;
+}
 
+@media (width <= 375px) {
+    :root {
+        --floppy-size: 28px;
+        --modal-padding: 40px;
+    }
 }
