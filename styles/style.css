@@ -56,12 +56,14 @@
 }
 
 .button {
+  position: relative;
   border: 2px solid #000;
   appearance: none;
   font-size: 14px;
   font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
   cursor: pointer;
   background: #fff;
+  overflow: hidden;
 }
 
 /*Стили для карточек*/
@@ -164,12 +166,40 @@
   padding: 10.5px 35px;
 }
 
-/*Стили для последнего блока с кнопкой "Сохранить"*/
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0px 0px #000000;
+  transition: box-shadow 0.3s ease;
+}
+
+.button::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background-color: #000;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
 
 .button__text {  /*Нужно перенести этот блок выше*/
   line-height: 90%;
   display: block;
+  color: var(--button-text-color, #fff);
+  mix-blend-mode: difference;
 }
+
+  
+
+/*Стили для последнего блока с кнопкой "Сохранить"*/
 
 .button__container {
   margin: 0 auto;
@@ -190,6 +220,8 @@
 .button__icon {
   inline-size: var(--floppy-size, 21px);
   block-size:  var(--floppy-size, 21px);
+  color: var(--button-text-color, #fff);
+  mix-blend-mode: difference;
 }
 
 /*Стили для модального окна*/
@@ -250,8 +282,7 @@
 }
 
 .card__image_mix {
-  filter: contrast(0.8);
-  filter: grayscale(0.4); 
+  filter: contrast(0.8) grayscale(0.4);
 }
 
 .card__image_brightness {
