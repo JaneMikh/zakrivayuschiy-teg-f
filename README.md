@@ -9,4 +9,4 @@
 
 ### Посмотреть проект
 - Ссылка на репозиторий: https://github.com/JaneMikh/zakrivayuschiy-teg-f
-- Ссылка на gh-pages: 
+- Ссылка на gh-pages: https://janemikh.github.io/zakrivayuschiy-teg-f/
