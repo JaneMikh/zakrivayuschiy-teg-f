@@ -4,22 +4,21 @@
 ✦ like-icon — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
 
 .page {
-  min-inline-size: 320px;
-  min-block-size: 100dvb;
-  font-family: var(--main-font, 'Inter-Variable', sans-serif);
-  font-variation-settings: 'wght' var(--main-font-weight, 400);
   color: var(--text-color);
+  font-family: var(--main-font, 'Inter-Variable', sans-serif);
   background-color: var(--bg-color, #fff);
   background-image: var(--bg-image);
-  background-attachment: fixed;
   background-size: cover;
+  background-attachment: fixed;
+  min-inline-size: 320px;
+  min-block-size: 100dvb;
+  font-variation-settings: 'wght' var(--main-font-weight, 400);
 }
 
 .section {
@@ -33,24 +32,24 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  padding: clamp(7.5rem, 6.9231rem + 2.4615vw, 8rem) 0;
-  background-color: var(--bg-color, #fff);
-  text-transform: uppercase;
-  font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
-  border: 2px solid var(--border-color, #000);
   margin: 100px auto;
+  border: 2px solid var(--border-color, #000);
+  padding: clamp(7.5rem, 6.9231rem + 2.4615vw, 8rem) 0;
+  font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
+  text-transform: uppercase;
+  background-color: var(--bg-color, #fff);
 }
 
 .header__logo {
-  font-size: clamp(3.06rem, 1.9062rem + 4.9231vw, 4.06rem);
   display: block;
+  font-size: clamp(3.06rem, 1.9062rem + 4.9231vw, 4.06rem);
   line-height: 100%;
 }
 
 .header__title {
+  font-weight: inherit;
   font-size: clamp(0.875rem, 0.2254rem + 2.7717vw, 1.438rem);
   line-height: 100%;
-  font-weight: inherit;
 }
 
 /*Стили для карточек*/
@@ -60,9 +59,9 @@
 }
 
 .card {
-  background-color: var(--bg-color, #fff);
-  border: 2px solid var(--border-color, #000);
   margin-bottom: 50px;
+  border: 2px solid var(--border-color, #000);
+  background-color: var(--bg-color, #fff);
 }
 
 .card:last-of-type {
@@ -70,9 +69,9 @@
 }
 
 .card__title {
+  padding: 5px 10px 3px;
   font-size: 18px;
   line-height: normal;
-  padding: 5px 10px 3px;
   font-variation-settings: 'wght' var(--main-font-bold-weight, 700);
 }
 
@@ -86,26 +85,26 @@
   position: absolute;
   top: 28px;
   right: 25px;
-  font-size: 14px;
   z-index: 2;
   font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
+  font-size: 14px;
   line-height: 100%;
-  text-shadow:  /*на случай, если text-stroke работать не будет. Код взяла из урока*/
-  -1px 0 var(--text-shadow, #fff), 
-  0 1px var(--text-shadow, #fff), 
-  1px 0 var(--text-shadow, #fff), 
-  0 -1px var(--text-shadow, #fff);
-  filter: opacity(0.5);
   text-transform: uppercase;
+  text-shadow:  /*на случай, если text-stroke работать не будет. Код взяла из урока*/
+    -1px 0 var(--text-shadow, #fff),
+    0 1px var(--text-shadow, #fff),
+    1px 0 var(--text-shadow, #fff),
+    0 -1px var(--text-shadow, #fff);
+  filter: opacity(0.5);
   mix-blend-mode: hard-light;
 }
 
 .card__image {
   display: block;
-  inline-size: 100%;
-  aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center;
+  inline-size: 100%;
+  aspect-ratio: 1 / 1;
 }
 
 .card__content {
@@ -128,24 +127,24 @@
 }
 
 .card__icon-button {
+  display: flex;
+  align-items: flex-end;
   border: 2px solid transparent;
   padding: 0;
   background-color: transparent;
   cursor: pointer;
   appearance: none;
-  display: flex;
-  align-items: flex-end;
 }
 
 .button {
   position: relative;
   border: 2px solid currentColor;
-  appearance: none;
-  font-size: 14px;
-  font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
-  cursor: pointer;
-  background-color: var(--bg-color, #fff);
   overflow: hidden;
+  font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
+  font-size: 14px;
+  background-color: var(--bg-color, #fff);
+  cursor: pointer;
+  appearance: none;
 }
 
 .card__like-button {
@@ -163,13 +162,13 @@
 }
 
 .button::before {
+  content: '';
   position: absolute;
-  content: "";
   inset: 0;
   background-color: var(--animation-button-fill-color, #000);
+  transition: transform 0.5s ease-in-out;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.5s ease-in-out;
 }
 
 .button:hover::before {
@@ -177,34 +176,34 @@
 }
 
 .button__text {
-  line-height: 90%;
   display: block;
   color: var(--button-text-color, #fff);
-  mix-blend-mode: difference;
+  line-height: 90%;
   text-align: center;
+  mix-blend-mode: difference;
 }
 
 /*Стили для блока с кнопкой "Сохранить"*/
 
 .button__container {
-  margin: 0 auto;
   display: flex;
   justify-content: center;
+  margin: 0 auto;
   padding: 50px 0 103px;
 }
 
 .save__button {
-  max-inline-size: 335px;
-  padding: 15.5px 19px 15.5px 17px;
   display: flex;
   align-items: center;
-  gap: 8px;            
+  gap: 8px;
+  padding: 15.5px 19px 15.5px 17px;
+  max-inline-size: 335px;
 }
 
 .button__icon {
-  inline-size: var(--floppy-size, 21px);
-  block-size:  var(--floppy-size, 21px);
   color: var(--button-text-color, #fff);
+  inline-size: var(--floppy-size, 21px);
+  block-size: var(--floppy-size, 21px);
   mix-blend-mode: difference;
 }
 
@@ -213,26 +212,26 @@
 }
 
 .card__icon-button:focus-visible {
-  border: 2px solid currentColor;  
+  border: 2px solid currentColor;
   transition: border 0.3s ease;
 }
 
 /*Стили для модального окна*/
 
 .modal {
-  padding: 0;
   position: fixed;
   inset: 0;
-  padding: 30px var(--modal-padding, 30px);
   display: grid;
   grid-template-rows: repeat(2, min-content);
   row-gap: 30px;
+  padding: 0;
+  padding: 30px var(--modal-padding, 30px);
   max-inline-size: 360px;
 }
 
 .modal:not([open]) {
-  pointer-events: none;
   opacity: 0;
+  pointer-events: none;
 }
 
 .modal::backdrop {
@@ -247,9 +246,9 @@
 
 .modal__icon {
   --floppy-size: 39px;
-  inline-size: var(--floppy-size, 39px);
-  block-size:  var(--floppy-size, 39px);
   align-self: center;
+  inline-size: var(--floppy-size, 39px);
+  block-size: var(--floppy-size, 39px);
 }
 
 .modal__text {
@@ -302,12 +301,11 @@
 /*Медиазапросы*/
 
 @media (width <= 375px) {
-
   .section {
     inline-size: 100%;
   }
 
- .card__watermark {
+  .card__watermark {
     top: 25px;
     right: 11px;
   }
@@ -322,10 +320,13 @@
   }
 }
 
-@supports((text-stroke: 1px var(--text-shadow, #fff)) or (-webkit-text-stroke: 1px var(--text-shadow, #fff))) {
+@supports (
+  (text-stroke: 1px var(--text-shadow, #fff)) or
+    (-webkit-text-stroke: 1px var(--text-shadow, #fff))
+) {
   .card__watermark {
+    text-shadow: none;
     -webkit-text-stroke: 1px var(--text-shadow, #fff);
     text-stroke: 1px var(--text-shadow, #fff);
-    text-shadow: none;
   }
 }

@@ -1,37 +1,37 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
-    /*font-family*/
-   --main-font: 'Inter-Variable';
-   --accent-font: 'PressStart2P-Regular';
+  /*font-family*/
+  --main-font: 'Inter-Variable';
+  --accent-font: 'PressStart2P-Regular';
 
-    /*font-weight*/
-    --main-font-weight: 400;
-    --main-font-bold-weight: 700;
-    
-    --bg-image: 
-        repeating-linear-gradient(to right, #d3d3d3 0 2px, transparent 2px 4px),
-        repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
-        linear-gradient(to bottom, #e7e7e7, #1a1a1a);
-    --bg-color: #fff;
-    --border-color: #000;
-    --text-color: #000;
-    --text-shadow: #fff;
-    --floppy-size: 21px;
-    --modal-padding: 30px;
-    --button-text-color: #fff;
+  /*font-weight*/
+  --main-font-weight: 400;
+  --main-font-bold-weight: 700;
 
-   /*Переменные для анимации сердца*/
-   --contour-color: #000;
-   --main-body-color: transparent;
-   --core-color: transparent;
-   --sparks-color: #ff0000;
-   --animation-fill-color: #ff0000;
-   --animation-button-fill-color: #000;
+  --bg-image:
+    repeating-linear-gradient(to right, #d3d3d3 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
+    linear-gradient(to bottom, #e7e7e7, #1a1a1a);
+  --bg-color: #fff;
+  --border-color: #000;
+  --text-color: #000;
+  --text-shadow: #fff;
+  --floppy-size: 21px;
+  --modal-padding: 30px;
+  --button-text-color: #fff;
+
+  /*Переменные для анимации сердца*/
+  --contour-color: #000;
+  --main-body-color: transparent;
+  --core-color: transparent;
+  --sparks-color: #ff0000;
+  --animation-fill-color: #ff0000;
+  --animation-button-fill-color: #000;
 }
 
 @media (width <= 375px) {
-    :root {
-        --floppy-size: 28px;
-        --modal-padding: 40px;
-    }
+  :root {
+    --floppy-size: 28px;
+    --modal-padding: 40px;
+  }
 }

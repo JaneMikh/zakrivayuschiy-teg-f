@@ -12,23 +12,23 @@
 /*Анимация для изменения иконки сердца по размеру*/
 
 @keyframes heart {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.25);
-    }
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.25);
+  }
 }
 
 /*Анимация для появления искр у иконки сердца*/
 
 @keyframes sparks {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /*Исходное состояние кнопок (срабатывает после отпускания кнопки)*/
@@ -38,8 +38,8 @@
 }
 
 .like-icon .core {
-    fill: var(--core-color, #fff);
-    transition: fill 0.3s linear 0.03s;
+  fill: var(--core-color, #fff);
+  transition: fill 0.3s linear 0.03s;
 }
 
 .like-icon .main-body {
@@ -51,12 +51,12 @@
   fill: var(--contour-color, #000);
   transition: fill 0.1s linear;
 }
- 
+
 /*Стили иконки c hover-эффектом*/
 
 .like-icon:hover .core {
-    fill: var(--contour-color, #000);
-    transition: fill 0.3s linear;
+  fill: var(--contour-color, #000);
+  transition: fill 0.3s linear;
 }
 
 .like-icon:hover .main-body {
@@ -67,8 +67,8 @@
 /*Стили иконки в состоянии active*/
 
 .like-icon:active .core {
-    fill: var(--animation-fill-color, #ff0000);
-    transition: fill 0.3s linear;
+  fill: var(--animation-fill-color, #ff0000);
+  transition: fill 0.3s linear;
 }
 
 .like-icon:active .main-body {
@@ -79,8 +79,8 @@
 /*Стили иконки в состоянии is-liked*/
 
 .like-icon.is-liked .core {
-    fill: var(--animation-fill-color, #ff0000);
-    transition: fill 0.3s linear;
+  fill: var(--animation-fill-color, #ff0000);
+  transition: fill 0.3s linear;
 }
 
 .like-icon.is-liked .main-body {
@@ -90,12 +90,12 @@
 
 .like-icon.is-liked .contour {
   fill: var(--animation-fill-color, #ff0000);
-  transition: fill 0,03s linear;
+  transition: fill 0.03s linear;
 }
 
 .like-icon.is-liked .icon-heart {
-  animation: heart 0.3s ease-in 0.1s 1 alternate;
   transform-origin: center; /*Без этого свойства расширение иконки сердца идет слева направо*/
+  animation: heart 0.3s ease-in 0.1s 1 alternate;
 }
 
 .like-icon.is-liked .sparks {
