@@ -15,10 +15,15 @@
   min-block-size: 100dvb;
   font-family: var(--main-font, 'Inter-Variable', sans-serif);
   font-variation-settings: 'wght' var(--main-font-weight, 400);
-  background-color: #fff; /*Нужно подумать. Может не нужно*/
+  color: var(--text-color);
+  background-color: var(--bg-color, #fff);
   background-image: var(--bg-image);
   background-attachment: fixed;
   background-size: cover;
+}
+
+.section {
+  max-inline-size: 700px;
 }
 
 /*Блок header*/
@@ -29,10 +34,10 @@
   align-items: center;
   gap: 20px;
   padding: clamp(7.5rem, 6.9231rem + 2.4615vw, 8rem) 0;
-  background-color: #fff;
+  background-color: var(--bg-color, #fff);
   text-transform: uppercase;
-  font-family: var(--accent-font, sans-serif);
-  border: 2px solid #000;
+  font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
+  border: 2px solid var(--border-color, #000);
   margin: 100px auto;
 }
 
@@ -40,30 +45,12 @@
   font-size: clamp(3.06rem, 1.9062rem + 4.9231vw, 4.06rem);
   display: block;
   line-height: 100%;
-  /*font-weight: inherit;*/
 }
 
 .header__title {
   font-size: clamp(0.875rem, 0.2254rem + 2.7717vw, 1.438rem);
   line-height: 100%;
   font-weight: inherit;
-}
-
-/*Переиспользуемые классы*/
-/*Секция резиновая. Ее ширину нужно будет сделать переменной и на мобильной версии сделать равной 100% экрана*/
-.section {
-  max-inline-size: 700px;
-}
-
-.button {
-  position: relative;
-  border: 2px solid #000;
-  appearance: none;
-  font-size: 14px;
-  font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
-  cursor: pointer;
-  background: #fff;
-  overflow: hidden;
 }
 
 /*Стили для карточек*/
@@ -73,11 +60,10 @@
 }
 
 .card {
-  background-color: #fff;
-  border: 2px solid #000;
+  background-color: var(--bg-color, #fff);
+  border: 2px solid var(--border-color, #000);
   margin-bottom: 50px;
 }
-
 
 .card:last-of-type {
   margin-bottom: 0;
@@ -85,15 +71,15 @@
 
 .card__title {
   font-size: 18px;
-  line-height: 100%;
-  padding: 6px 24px 6px 10px;
+  line-height: normal;
+  padding: 5px 10px 3px;
   font-variation-settings: 'wght' var(--main-font-bold-weight, 700);
 }
 
 .card__image-container {
   position: relative;
-  border-top: 2px solid #000;
-  border-bottom: 2px solid #000;
+  border-top: 2px solid var(--border-color, #000);
+  border-bottom: 2px solid var(--border-color, #000);
 }
 
 .card__watermark {
@@ -101,9 +87,9 @@
   top: 28px;
   right: 25px;
   font-size: 14px;
+  z-index: 2;
   font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
   line-height: 100%;
-  text-transform: uppercase;
   text-shadow:  /*на случай, если text-stroke работать не будет. Код взяла из урока*/
   -1px 0 var(--text-shadow, #fff), 
   0 1px var(--text-shadow, #fff), 
@@ -111,17 +97,7 @@
   0 -1px var(--text-shadow, #fff);
   filter: opacity(0.5);
   mix-blend-mode: hard-light;
-  
 }
-
-@supports((text-stroke: 1px var(--text-shadow, #fff)) or (-webkit-text-stroke: 1px var(--text-shadow, #fff))) {
-  .card__watermark {
-    -webkit-text-stroke: 1px var(--text-shadow, #fff);
-    text-stroke: 1px var(--text-shadow, #fff);
-    text-shadow: none;
-  }
-}
-
 
 .card__image {
   display: block;
@@ -132,7 +108,7 @@
 }
 
 .card__content {
-  padding: 25px 25px 25px;
+  padding: 25px;
 }
 
 .card__text {
@@ -144,26 +120,36 @@
   line-height: calc(21 / 18);
 }
 
-
 .card__buttons {
   display: flex;
   justify-self: flex-end;
   gap: 6px;
- /* padding: 0 25px 25px 0;*/
 }
 
 .card__icon-button {
   border: 2px solid transparent;
   padding: 0;
-  background: transparent;
+  background-color: transparent;
   cursor: pointer;
   appearance: none;
   display: flex;
   align-items: flex-end;
 }
 
+.button {
+  position: relative;
+  border: 2px solid currentColor;
+  appearance: none;
+  font-size: 14px;
+  font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
+  cursor: pointer;
+  background-color: var(--bg-color, #fff);
+  overflow: hidden;
+}
+
 .card__like-button {
-  padding: 10.5px 35px;
+  padding: 10.5px 0;
+  inline-size: 130px;
 }
 
 .button:focus {
@@ -171,7 +157,7 @@
 }
 
 .button:focus-visible {
-  box-shadow: 2px 2px 0px 0px #000000;
+  box-shadow: 2px 2px 0px 0px currentColor;
   transition: box-shadow 0.3s ease;
 }
 
@@ -179,7 +165,7 @@
   position: absolute;
   content: "";
   inset: 0;
-  background-color: #000;
+  background-color: var(--animation-button-fill-color, #000);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.5s ease-in-out;
@@ -189,24 +175,21 @@
   transform: scaleX(1);
 }
 
-
-.button__text {  /*Нужно перенести этот блок выше*/
+.button__text {
   line-height: 90%;
   display: block;
   color: var(--button-text-color, #fff);
   mix-blend-mode: difference;
+  text-align: center;
 }
 
-  
-
-/*Стили для последнего блока с кнопкой "Сохранить"*/
+/*Стили для блока с кнопкой "Сохранить"*/
 
 .button__container {
   margin: 0 auto;
   display: flex;
   justify-content: center;
   padding: 50px 0 103px;
-
 }
 
 .save__button {
@@ -233,99 +216,32 @@
   transition: border 0.3s ease;
 }
 
-.sparks {
-  opacity: 0;
-}
-
-
-/*Стили до hover и других эффектов*/
-.like-icon .core {
-    fill: var(--core-color, #fff);
-    transition: fill 0.3s linear 0.03s;
-}
-
-.like-icon .main-body {
-  fill: var(--main-body-color, #fff);
-  transition: fill 0.3s linear;
-}
-
-.like-icon .contour {
-  fill: var(--contour-color, #000);
-  transition: fill 0.1s linear;
-}
- 
-/*Стили c hover-эффектом*/
-.like-icon:hover .core {
-    fill: var(--contour-color, #000);
-    transition: fill 0.3s linear;
-}
-
-.like-icon:hover .main-body {
-  fill: var(--contour-color, #000);
-  transition: fill 0.3s linear 0.03s;
-}
-
-/*Стили иконки в состоянии active*/
-.like-icon:active .core {
-    fill: var(--sparks-color, #ff0000);
-    transition: fill 0.3s linear;
-}
-
-.like-icon:active .main-body {
-  fill: var(--sparks-color, #ff0000);
-  transition: fill 0.3s linear 0.03s;
-}
-
-/*Стили иконки в состоянии is-liked*/
-.like-icon.is-liked .core {
-    fill: var(--sparks-color, #ff0000);
-    transition: fill 0.3s linear;
-}
-
-.like-icon.is-liked .main-body {
-  fill: var(--sparks-color, #ff0000);
-  transition: fill 0.3s linear 0.03s;
-}
-
-.like-icon.is-liked .contour {
-  fill: var(--sparks-color, #ff0000);
-  transition: fill 0,03s linear;
-}
-
-.like-icon.is-liked .icon-heart {
-  animation: heart 0.3s ease-in 0.1s 1 alternate;
-  transform-origin: center;
-}
-
-.like-icon.is-liked .sparks {
-  animation: sparks 0.3s ease-in 0.3s 1 alternate;
-}
-
 /*Стили для модального окна*/
 
 .modal {
   padding: 0;
   position: fixed;
   inset: 0;
-  max-inline-size: 353px;
+  padding: 30px var(--modal-padding, 30px);
+  display: grid;
+  grid-template-rows: repeat(2, min-content);
+  row-gap: 30px;
+  max-inline-size: 358px;
 }
-
 
 .modal:not([open]) {
   pointer-events: none;
   opacity: 0;
 }
 
-
 .modal::backdrop {
   background-color: rgb(0 0 0 / 0.75);
 }
 
-.modal__form {
-  padding: 30px var(--modal-padding, 30px);
+.modal__content {
   display: grid;
   grid-template-columns: min-content 1fr;
-  gap: 30px 20px;
+  gap: 20px;
 }
 
 .modal__icon {
@@ -336,7 +252,7 @@
 }
 
 .modal__text {
-  font-family: var(--accent-font, sans-serif);
+  font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
   font-weight: inherit;
   font-size: 14px;
   line-height: 150%;
@@ -345,7 +261,7 @@
 
 .modal__button {
   padding: 10.7px 0;
-  grid-column: 1 / 3;
+  inline-size: 100%;
 }
 
 /*Фильтры*/
@@ -359,7 +275,7 @@
 }
 
 .card__image_mix {
-  filter: contrast(0.8) grayscale(0.4);
+  filter: contrast(0.8) grayscale(0.2);
 }
 
 .card__image_brightness {
@@ -371,7 +287,7 @@
 }
 
 .card__image_greyscale {
-  filter: grayscale(0.7);
+  filter: grayscale(0.6);
 }
 
 .card__image_hue-rotate {
@@ -385,20 +301,30 @@
 /*Медиазапросы*/
 
 @media (width <= 375px) {
-  .card__title {
-    line-height: normal;
+
+  .section {
+    inline-size: 100%;
   }
 
-  .button__container {
-    padding-top: 52px;
+ .card__watermark {
+    top: 25px;
+    right: 11px;
   }
 
   .save__button {
     flex-direction: column;
   }
 
-  .modal__form {
+  .modal {
     padding: 30px var(--modal-padding);
     max-inline-size: 341px;
+  }
+}
+
+@supports((text-stroke: 1px var(--text-shadow, #fff)) or (-webkit-text-stroke: 1px var(--text-shadow, #fff))) {
+  .card__watermark {
+    -webkit-text-stroke: 1px var(--text-shadow, #fff);
+    text-stroke: 1px var(--text-shadow, #fff);
+    text-shadow: none;
   }
 }
