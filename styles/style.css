@@ -11,7 +11,7 @@
 
 .page {
   color: var(--text-color, #000);
-  font-family: var(--main-font, 'Inter-Variable', sans-serif);
+  font-family: var(--main-font, 'Inter', sans-serif);
   /*background-color: var(--bg-color, #fff);*/
   background: var(--bg-color, #fff);
   background-image: var(--bg-image, 
@@ -40,7 +40,7 @@
   margin: 100px auto;
   border: 2px solid var(--border-color, #000);
   padding: clamp(7.5rem, 6.9231rem + 2.4615vw, 8rem) 0;
-  font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
+  font-family: var(--accent-font, 'PressStart2P', fantasy);
   text-transform: uppercase;
   /*background-color: var(--bg-color, #fff);*/
   background: var(--bg-color, #fff);
@@ -93,7 +93,7 @@
   top: 28px;
   right: 25px;
   z-index: 2;
-  font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
+  font-family: var(--accent-font, 'PressStart2P', fantasy);
   font-size: 14px;
   line-height: 100%;
   text-transform: uppercase;
@@ -149,7 +149,7 @@
   position: relative;
   border: 2px solid currentColor;
   overflow: hidden;
-  font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
+  font-family: var(--accent-font, 'PressStart2P', fantasy);
   font-size: 14px;
   /*background-color: var(--bg-color, #fff);*/
   background: var(--bg-color, #fff);
@@ -231,19 +231,18 @@
 
 /*Стили для модального окна*/
 
-.modal {
-  position: fixed;
-  inset: 0;
+.modal[open] {
   display: grid;
   grid-template-rows: repeat(2, min-content);
   row-gap: 30px;
   padding: 30px var(--modal-padding, 30px);
   max-inline-size: 360px;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.5s ease-in-out; /*Под вопросом*/
 }
 
 .modal:not([open]) {
   opacity: 0;
+  display: none;
   pointer-events: none;
 }
 
@@ -266,11 +265,12 @@
 }
 
 .modal__text {
-  font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
+  font-family: var(--accent-font, 'PressStart2P', fantasy);
   font-weight: inherit;
   font-size: 14px;
   line-height: 150%;
   text-transform: uppercase;
+  max-inline-size: 234px;
 }
 
 .modal__button {
@@ -328,7 +328,11 @@
     flex-direction: column;
   }
 
-  .modal {
+  /*.modal {
+    padding: 30px var(--modal-padding, 30px);
+    max-inline-size: 341px;
+  }*/
+    .modal[open] {
     padding: 30px var(--modal-padding, 30px);
     max-inline-size: 341px;
   }
