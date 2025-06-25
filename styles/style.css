@@ -223,23 +223,19 @@
 
 /*Стили для модального окна*/
 
-.modal[open] {
-  display: grid;
+.modal {
   grid-template-rows: repeat(2, min-content);
   row-gap: 30px;
   padding: 30px var(--modal-padding, 30px);
-  transition: opacity 0.5s ease-in-out;
-  max-inline-size: 357px;
+  inline-size: 357px;
 }
 
-.modal:not([open]) {
-  display: none;
-  opacity: 0;
-  pointer-events: none;
+.modal[open] {
+  display: grid;
 }
 
-.modal::backdrop {
-  background: rgb(0 0 0 / 0.75);
+.modal[open]::backdrop {
+ background: rgb(0 0 0 / 0.75);
 }
 
 .modal__content {
