@@ -236,8 +236,9 @@
   grid-template-rows: repeat(2, min-content);
   row-gap: 30px;
   padding: 30px var(--modal-padding, 30px);
-  max-inline-size: 360px;
-  transition: opacity 0.5s ease-in-out; /*Под вопросом*/
+ /* max-inline-size: 360px; */
+  max-inline-size: 357px;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .modal:not([open]) {
